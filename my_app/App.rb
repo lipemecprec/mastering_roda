@@ -1,29 +1,29 @@
-# Match methods
-# http://localhost:9292
-require "roda"
+# Custom match methods
+require 'roda'
 
 class App < Roda
-    route do |r|
-        r.on "posts" do
-            post_list = {
-                1 => "Post[1]",
-                2 => "Post[2]",
-                3 => "Post[3]",
-                4 => "Post[4]",
-                5 => "Post[5]",
-            }
 
-            r.is Integer do |id|
-                post_list[id]
-            end
-
-            post_list.values.map { |post| post }.join(" | ")
-        end
-        r.on "hello" do
-            "Hello, #{name}!"
-        end
-        r.on "goodbye" do
-            "Farewell, #{name}!"
-        end
+  # Class matchers
+  route do |r|
+    # try http://localhost:9292/posts/new
+    r.on "posts" do
+      r.on String do |seg|
+        "0 #{seg} #{r.remaining_path}"
+      end
     end
+
+    # try http://localhost:9292/topics/about
+    r.on String do |seg|
+      "1 #{seg} #{r.remaining_path}"
+    end
+
+    # try http://localhost:9292/2
+    r.on Integer do |seg|
+      "#{seg.inspect} #{r.remaining_path}"
+    end
+
+    #Custom class matchers
+
+  end
+
 end
