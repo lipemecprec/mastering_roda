@@ -12,13 +12,4 @@ class App < Roda
     end
   end
 
-  # route do |r|  
-  #   r.on "posts", method: :post do |id|
-  #       # GET /post matches as
-  #       # GET /posts/1 matches as
-  #       # GET /posts/new does not match as
-  #     "#{id}"
-  #   end
-  # end
-
 end
