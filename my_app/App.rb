@@ -4,11 +4,11 @@ require 'roda'
 class App < Roda
 
   route do |r|  
-    r.get ['post', {all: ['posts', Integer]}] do |id|
+    r.get ['israel', {all: ['posts', Integer]}] do |id|
         # GET /post matches as
         # GET /posts/1 matches as
         # GET /posts/new does not match as
-      "#{id}"
+      "<h1>#{id} é o cara</h1>"
     end
   end
 
