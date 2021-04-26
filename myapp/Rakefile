@@ -1,0 +1,13 @@
+task default: %w[test]
+
+task :test do
+  ruby "test/unittest.rb"
+end
+
+#!/usr/bin/env rake - https://mrcook.uk/simple-roda-blog-tutorial
+task :app do
+  require "./myapp"
+end
+Dir[File.dirname(__FILE__) + "/lib/tasks/*.rb"].sort.each do |path|
+  require path
+end

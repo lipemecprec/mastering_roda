@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>To-Do or not To-Do</title>
+  </head>
+  <body>
+    <h1>To-Do or not To-Do</h1>
+    <h2>Tasks</h2>
+    <ul>
+      <% @tasks.each do |task| %>
+        <li class="<%= task.done? ? :done : :todo %>">
+          <input type="checkbox"<%= " checked" if task.done? %>>
+          <%= task.title %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
