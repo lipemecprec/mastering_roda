@@ -1,0 +1,35 @@
+<!-- ./views/about.erb -->
+
+<html>
+  <head>
+    <title>Parser</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <form class="row g-3">
+        <div class="col-md-6">
+          <div class="row mb-3">
+            <div class="col-3">
+              <button class="btn btn-info" type="submit">Parser test</button>
+            </div>
+            <div class="col-9">  
+              <p class="text-end text-break bg-info text-dark fs-3 px-1"><%= @result %></p>
+            </div>
+          </div>  
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="<html>" id="data_input" name="data_input" spellcheck="false" autofocus="" rows="25"></textarea>
+            <label for="data_input">Parse procmail helper</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <% @param.each do |param| %>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id=<%= param %> placeholder=<%= param %>>
+              <label for=<%= param %>><%= param %></label>
+            </div>                
+          <% end %>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
